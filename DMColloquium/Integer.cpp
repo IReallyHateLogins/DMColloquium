@@ -39,7 +39,7 @@ std::istream& operator>> (std::istream& str, Integer& integer) {
 }
 
 
-Integer Integer::ADD_ZZ_Z(Integer n) {
+Integer Integer::ADD_ZZ_Z(Integer const& n) {
 	if (this->POZ_Z_D() == 0) return n;
 	if (n.POZ_Z_D() == 0) return *this;
 	if (this->POZ_Z_D() == 1 && n.POZ_Z_D() == 1) 
