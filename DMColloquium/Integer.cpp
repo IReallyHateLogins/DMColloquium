@@ -37,3 +37,31 @@ std::istream& operator>> (std::istream& str, Integer& integer) {
     
     return str;
 }
+
+
+Integer Integer::ADD_ZZ_Z(Integer n) {
+	if (this->POZ_Z_D == 0) return n;
+	if (n.POZ_Z_D == 0) return *this;
+	if (this->POZ_Z_D == 1 && n.POZ_Z_D == 1) 
+		return Integer(this->ADD_NN_N(n), true);
+	if (this->POZ_Z_D == -1 && n.POZ_Z_D == 1)
+	{
+		switch (this->COM_NN_D(n))
+		{
+			case 1: return Integer(n.SUB_NN_N(this->ABS_Z_N()), true);
+			case 0: return Integer();
+			case 2: return Integer(this->ABS_Z_N->SUB_NN_N(n), false);
+		}
+	}
+	if (this->POZ_Z_D == 1 && n.POZ_Z_D == -1)
+	{
+		switch (this->COM_NN_D(n))
+		{
+			case 1: return Integer(n.ABS_Z_N.SUB_NN_N(this), false);
+			case 0: return Integer();
+			case 2: return Integer(this->SUB_NN_N(n.ABS_Z_N()), false);
+		}
+	}
+	if (this->POZ_Z_D == -1 && n.POZ_Z_D == -1)
+		return Integer(this->ABS_Z_N->ADD_NN_N(n.ABS_Z_N), false);
+}
