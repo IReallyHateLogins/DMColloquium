@@ -21,6 +21,7 @@ public:
     Integer(std::vector<unsigned int> digits, bool isPositive);
     Integer(NaturalNumber natural, bool isPositive):NaturalNumber{natural},isPositive{isPositive}{};
     //("2346234623452346234623462346") ("-234623452346234623462346") ("+234652345234623462346")
+    Integer ADD_ZZ_Z(Integer n);
     friend std::istream& operator>> (std::istream& str, Integer& integer);
 };
 
